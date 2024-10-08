@@ -2,15 +2,16 @@
   "name": "tp1-reynaga_mariana",
   "version": "1.0.0",
   "description": "TP1 para aplicaciones hibridas, API REST de razas de gatos",
+  "github": "https://github.com/Mariana-reynaga/TP1-aplicaciones_hibridas.git",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
   "author": "Mariana Reynaga",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "chalk": "^4.1.2",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "jsonwebtoken": "^9.0.2",
