@@ -3,6 +3,7 @@ const chalk = require('chalk');
 const log = console.log;
 
 const Recognized = require('../Models/RecognizedModel');
+const Experimental = require('../Models/ExperimentalModel');
 
 // Traer todas las razas reconocidas
 const getRecognizedBreeds = async ( req, res ) => {
@@ -20,7 +21,29 @@ const getRecognizedBreeds = async ( req, res ) => {
         log(chalk.bgRed('[RecognizedController.js]: getRecognizedBreeds: ' ,error));
         res.status(500).json({msg: 'OOPS, tenemos un error', data: {}});
     }
-}
+};
+
+// Traer una raza reconocida por nombre
+const getBreedXname = async ( req, res ) => {
+    const {name} = req.params;
+
+    try{
+        const query = Recognized.where({name: name});
+
+        const breedName = await query.findOne();
+
+        if (breedName) {
+            res.status(200).json({msg: "¡Raza encontrada!", data: breedName});
+
+        } else {
+            res.status(404).json({msg: "No se encontro la raza.", data: {}});
+        }
+
+    }catch(error){
+        log(chalk.bgRed('[RecognizedController.js]: getBreedXname: ' ,error));
+        res.status(500).json({msg: 'OOPS, tenemos un error', data: {}});
+    }
+};
 
 // Traer una raza por ID
 const getBreedXid = async ( req, res ) => {
@@ -51,6 +74,12 @@ const createRecognized = async ( req, res ) =>{
 
     try {
         
+        const experimentalCheck = await Experimental.exists( { name } );
+
+        if (experimentalCheck) {
+            return res.status(400).send({ msg: "La raza ya existe y es experimental." });
+        }
+
         if ( name.length >= 4 && possible_colors.length > 0 ) {
 
             const breedExist = await Recognized.exists({ name });
@@ -109,7 +138,7 @@ const updateRecognizedBreed = async ( req, res ) =>{
     }
 };
 
-// Eliminar un Usuario
+// Eliminar una raza
 const deleteRecognizedBreed = async ( req, res ) =>{
     const { id } = req.params;
 
@@ -128,4 +157,4 @@ const deleteRecognizedBreed = async ( req, res ) =>{
     }
 };
 
-module.exports = { getRecognizedBreeds, getBreedXid, createRecognized, updateRecognizedBreed, deleteRecognizedBreed };
+module.exports = { getRecognizedBreeds, getBreedXid, getBreedXname, createRecognized, updateRecognizedBreed, deleteRecognizedBreed };

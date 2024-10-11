@@ -41,7 +41,7 @@ const getUserXname = async ( req, res ) => {
         }
 
     }catch(error){
-        log(chalk.bgRed('[UserController.js]: getUserXid: ' ,error));
+        log(chalk.bgRed('[UserController.js]: getUserXname: ' ,error));
         res.status(500).json({msg: 'OOPS, tenemos un error', data: {}});
     }
 };

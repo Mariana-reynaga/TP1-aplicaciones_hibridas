@@ -3,8 +3,9 @@ const chalk = require('chalk');
 const log = console.log;
 
 const Experimental = require('../Models/ExperimentalModel');
+const Recognized = require('../Models/RecognizedModel');
 
-// Traer todas las razas reconocidas
+// Traer todas las razas experimentales
 const getExperimentalBreeds = async ( req, res ) => {
     const breeds = await Experimental.find();
 
@@ -21,6 +22,28 @@ const getExperimentalBreeds = async ( req, res ) => {
         res.status(500).json({msg: 'OOPS, tenemos un error', data: {}});
     }
 }
+
+// Traer una raza experimental por nombre
+const getBreedXname = async ( req, res ) => {
+    const {name} = req.params;
+
+    try{
+        const query = Experimental.where({name: name});
+
+        const breedName = await query.findOne();
+
+        if (breedName) {
+            res.status(200).json({msg: "¡Raza encontrada!", data: breedName});
+
+        } else {
+            res.status(404).json({msg: "No se encontro la raza.", data: {}});
+        }
+
+    }catch(error){
+        log(chalk.bgRed('[ExperimentalController.js]: getBreedXname: ' ,error));
+        res.status(500).json({msg: 'OOPS, tenemos un error', data: {}});
+    }
+};
 
 // Traer una raza por ID
 const getBreedXid = async ( req, res ) => {
@@ -41,7 +64,7 @@ const getBreedXid = async ( req, res ) => {
     }
 };
 
-// Añadir una nueva raza reconocida
+// Añadir una nueva raza experimental
 const createExperimental = async ( req, res ) =>{
     const { name, origin, coat_length, possible_colors } = req.body;
     
@@ -50,7 +73,12 @@ const createExperimental = async ( req, res ) =>{
     };
 
     try {
-        
+        const recognizedCheck = await Recognized.exists( { name } );
+
+        if (recognizedCheck) {
+            return res.status(400).send({ msg: "La raza ya existe y es reconocida." });
+        }
+
         if ( name.length >= 4 && possible_colors.length > 0 ) {
 
             const breedExist = await Experimental.exists({ name });
@@ -109,7 +137,7 @@ const updateExperimentalBreed = async ( req, res ) =>{
     }
 };
 
-// Eliminar un Usuario
+// Eliminar una raza
 const deleteExperimentalBreed = async ( req, res ) =>{
     const { id } = req.params;
 
@@ -128,4 +156,4 @@ const deleteExperimentalBreed = async ( req, res ) =>{
     }
 };
 
-module.exports = { getExperimentalBreeds, getBreedXid, createExperimental, updateExperimentalBreed, deleteExperimentalBreed };
+module.exports = { getExperimentalBreeds, getBreedXname, getBreedXid, createExperimental, updateExperimentalBreed, deleteExperimentalBreed };
