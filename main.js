@@ -14,17 +14,8 @@ const port = process.env.PORT;
 // Router
 const routerAPI = require('./routes');
 
-// Mongoose / MongoDB
-const mongoose = require('mongoose');
-const { User } = require('./Models/UsersModel');
-mongoose.connect(process.env.CONNECTION);
-const db = mongoose.connection;
-
-db.on('error', ()=> log(chalk.white.bgRed('Error')));
-
-db.once('open', ()=>{
-    log(chalk.cyan.bgWhite('Conexión correcta'));
-});
+// Connexión a database
+const db = require('./config/database');
 
 app.use( (req, res, next)=>{
     log(chalk.black.bgBlue('Hola desde el middleware'));
