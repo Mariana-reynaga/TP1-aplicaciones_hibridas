@@ -4,6 +4,12 @@ const log = console.log;
 
 const User = require('../Models/UsersModel');
 
+// Encryption
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const secretKey = process.env.SECRETKEY; 
+const salt = 10;
+
 // Traer Todos Los Usuarios
 const bringUsers = async ( req, res ) => {
     const users = await User.find();
@@ -49,7 +55,7 @@ const getUserXname = async ( req, res ) => {
 // Traer un Usuario por ID
 const getUserXid = async ( req, res ) => {
     const {id} = req.params; 
-
+    
     try {
         const user = await User.findById(id);
 
@@ -74,7 +80,7 @@ const createUser = async ( req, res ) =>{
         res.status(400).json({msg: 'Faltan datos obligatorios', data: { name , email , password }});
     };
 
-    // const passwordHash = await bcrypt.hash(password, salt);
+    const passwordHash = await bcrypt.hash(password, salt);
     
     try {
         
@@ -86,7 +92,7 @@ const createUser = async ( req, res ) =>{
                 return res.status(400).send({ msg: "El usuario ya existe." });
             }
           
-            const newUser = new User( { name, email, password } );
+            const newUser = new User( { name, email, password: passwordHash } );
             
             await newUser.save();
 
@@ -108,20 +114,22 @@ const updateUser = async ( req, res ) =>{
     const { id } = req.params;
     const { name, password, email } = req.body;
 
-    const newData = {name, password, email};
+    const passwordHash = await bcrypt.hash(password, salt);
+
+    const newData = {name, password: passwordHash, email};
     
     try {
         const user = await User.findById(id);
 
         if(!newData.name || !newData.email || !newData.password){
             res.status(400).json({msg: 'Datos incorrectos. El nombre, email y password son requeridos', data:{newData}});
-        }else
 
-        if (user) {
+        }else if (user) {
             if (password.length >= 8 && email.indexOf('@') > -1 ) {
-                const newUser = await User.findByIdAndUpdate(id, newData, {new: true});
+                
+                const updatedUser = await User.findByIdAndUpdate(id, newData, {new: true});
     
-                res.status(200).json({msg: "El usuario fue actualizado exitosamente.", data: newUser});
+                res.status(200).json({msg: "El usuario fue actualizado exitosamente.", data: updatedUser});
 
             }else {
                 res.status(400).json({msg: 'Datos incorrectos. La contraseña debe ser al menos 8 caracteres y el email debe contener un @.', data: { email, password }});
@@ -131,7 +139,7 @@ const updateUser = async ( req, res ) =>{
             res.status(404).json({msg: "No se encontro el usuario", data: {}});
         }
     } catch (error) {
-        log(chalk.bgRed('[UserController.js]: updateUser: ' ,error));
+        log(chalk.bgRed('[UserController.js]: login: ' ,error));
         res.status(500).json({msg: 'OOPS, tenemos un error', data: {}});
     }
 };
@@ -155,4 +163,37 @@ const deleteUser = async ( req, res ) =>{
     }
 };
 
-module.exports = { bringUsers, getUserXname, getUserXid, createUser, updateUser, deleteUser };
+const login = async (req, res)=>{
+    try {
+        const { email, password } = req.body;
+
+        const user = await User.findOne({ email });
+
+        if(user){
+            const validPassword = await bcrypt.compare( password, user.password );
+
+            if(validPassword){
+                const data = {
+                    userID: user._id,
+                    username: user.name 
+                };
+    
+                const token = jwt.sign(data, secretKey, {expiresIn: '1h'});
+    
+                res.status(200).json({msg: `Bienvenido ${user.name}`, data:{ data } });
+                
+            }else{
+                res.status(401).json({msg: "El password es incorrecto", data: {}});
+            }
+            
+        }else{
+            res.status(401).json({msg: "El email no existe", data: {}});
+        }
+
+    } catch (error) {
+        log(chalk.bgRed('[UserController.js]: login: ' ,error));
+        res.status(500).json({msg: 'OOPS, tenemos un error', data: {}});
+    }
+}
+
+module.exports = { bringUsers, getUserXname, getUserXid, createUser, updateUser, deleteUser, login };

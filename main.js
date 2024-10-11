@@ -18,7 +18,7 @@ const routerAPI = require('./routes');
 const db = require('./config/database');
 
 app.use( (req, res, next)=>{
-    log(chalk.black.bgBlue('Hola desde el middleware'));
+    log(chalk.bgBlackBright('Middleware funciona correctamente.'));
     next();
 });
 
