@@ -24,6 +24,28 @@ const bringUsers = async ( req, res ) => {
 
 };
 
+// Traer un Usuario por nombre
+const getUserXname = async ( req, res ) => {
+    const {name} = req.params;
+
+    try{
+        const query = User.where({name: name});
+
+        const userName = await query.findOne();
+
+        if (userName) {
+            res.status(200).json({msg: "¡Usuario encontrado!", data: userName});
+
+        } else {
+            res.status(404).json({msg: "No se encontro el usuario.", data: {}});
+        }
+
+    }catch(error){
+        log(chalk.bgRed('[UserController.js]: getUserXid: ' ,error));
+        res.status(500).json({msg: 'OOPS, tenemos un error', data: {}});
+    }
+};
+
 // Traer un Usuario por ID
 const getUserXid = async ( req, res ) => {
     const {id} = req.params; 
@@ -133,4 +155,4 @@ const deleteUser = async ( req, res ) =>{
     }
 };
 
-module.exports = { bringUsers, getUserXid, createUser, updateUser, deleteUser };
+module.exports = { bringUsers, getUserXname, getUserXid, createUser, updateUser, deleteUser };
