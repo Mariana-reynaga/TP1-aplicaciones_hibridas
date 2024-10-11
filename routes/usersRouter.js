@@ -2,29 +2,17 @@ const express = require('express');
 const router = express.Router();
 router.use(express.json());
 
+const { bringUsers, getUserXid, createUser, updateUser, deleteUser } = require('../controllers/UserController');
+
 // Rutas
-router.get('/', (req, res)=>{
-    res.status(200).send('Ruta GET / de users');
-});
+router.get('/', bringUsers);
 
-router.get('/:id', (req, res)=>{
-    const id = req.params.id;
-    res.status(200).send(`Ruta GET /${id} de users`);
-});
+router.get('/:id', getUserXid);
 
-router.post('/', (req, res)=>{
-    const id = req.params.id;
-    res.status(200).send(`Ruta POST / de users`);
-});
+router.post('/', createUser);
 
-router.put('/:id', (req, res)=>{
-    const id = req.params.id;
-    res.status(200).send(`Ruta PUT /${id} de users`);
-});
+router.put('/:id', updateUser);
 
-router.delete('/:id', (req, res)=>{
-    const id = req.params.id;
-    res.status(200).send(`Ruta DELETE /${id} de user`);
-});
+router.delete('/:id', deleteUser);
 
 module.exports = router;
