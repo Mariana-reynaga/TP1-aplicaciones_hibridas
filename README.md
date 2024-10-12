@@ -1,5 +1,5 @@
 # Michi REST
-### Una API REST para todas las necesidades gatunas.
+**Una API REST para todas las necesidades gatunas.**
 
 Michi REST permite la búsqueda, creación, actualización y eliminación de razas de gatos reconocidas por la Fédération Internationale Féline (FIF) además de razas experimentales.
 
