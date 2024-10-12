@@ -7,66 +7,67 @@ Michi REST permite la búsqueda, creación, actualización y eliminación de raz
 
 ## Endpoints
 
-<section>
-    <summary>Rutas para Users: </summary>
+<details>
+    <summary> Rutas para Users: </summary>
+    <br>
 
     **GET**
-   - Traer todos los usuarios registrados
+    - Traer todos los usuarios registrados
 
-```
-    http://127.0.0.1:3000/api/users
-```
-<br>
+    ```
+        http://127.0.0.1:3000/api/users
+    ```
+    <br>
 
--   Traer un usuario por su nombre
+    -   Traer un usuario por su nombre
 
-```
-    http://127.0.0.1:3000/api/users/name/:name
-```
-<br>
+    ```
+        http://127.0.0.1:3000/api/users/name/:name
+    ```
+    <br>
 
--   Traer un usuario por su ID
+    -   Traer un usuario por su ID
 
-```
-    http://127.0.0.1:3000/api/users/:id
-```
+    ```
+        http://127.0.0.1:3000/api/users/:id
+    ```
 
-<br>
+    <br>
 
-**POST**
--   Crear un usuario
+    **POST**
+    -   Crear un usuario
 
-```
-    http://127.0.0.1:3000/api/users/
-```
+    ```
+        http://127.0.0.1:3000/api/users/
+    ```
 
-<br>
+    <br>
 
--   Iniciar Sesión
+    -   Iniciar Sesión
 
-```
-    http://127.0.0.1:3000/api/users/login
-```
+    ```
+        http://127.0.0.1:3000/api/users/login
+    ```
 
-<br>
+    <br>
 
-**PUT**
--   Actualizar un usuario
+    **PUT**
+    -   Actualizar un usuario
 
-```
-    http://127.0.0.1:3000/api/users/:id
-```
+    ```
+        http://127.0.0.1:3000/api/users/:id
+    ```
 
-<br>
+    <br>
 
-**DELETE**
--   Eliminar un usuario
+    **DELETE**
+    -   Eliminar un usuario
 
-```
-    http://127.0.0.1:3000/api/users/:id
-```
+    ```
+        http://127.0.0.1:3000/api/users/:id
+    ```
 
-</section>
+</details>
 
 <br>
 
