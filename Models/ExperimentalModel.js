@@ -12,10 +12,14 @@ const experimentalSchema = new schema({
     },
     coat_length:{
         type: String,
+        enum: ['short', 'long', 'bald'],
+        default: 'short',
         required: true
     },
-    possible_colors:{
-        type: Array,
+    possible_color:{
+        type: String,
+        enum: ['white', 'black', 'ginger', 'tabby', 'blue', 'brown', 'calico', 'rosette'],
+        default: 'white',
         required: true
     },
     created_at:{

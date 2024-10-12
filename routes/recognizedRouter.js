@@ -2,12 +2,16 @@ const express = require('express');
 const router = express.Router();
 router.use(express.json());
 
-const { getRecognizedBreeds, getBreedXid, getBreedXname, createRecognized, updateRecognizedBreed, deleteRecognizedBreed } = require('../controllers/RecognizedController');
+const { getRecognizedBreeds, getBreedXid, getBreedXlength, getBreedXcolor, getBreedXname, createRecognized, updateRecognizedBreed, deleteRecognizedBreed } = require('../controllers/RecognizedController');
 
 // Rutas
 router.get('/', getRecognizedBreeds);
 
-router.get('/:name', getBreedXname);
+router.get('/name/:name', getBreedXname);
+
+router.get('/length/:length', getBreedXlength);
+
+router.get('/color/:color', getBreedXcolor);
 
 router.get('/:id', getBreedXid);
 
