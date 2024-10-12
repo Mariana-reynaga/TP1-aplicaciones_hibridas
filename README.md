@@ -9,71 +9,76 @@ Michi REST permite la búsqueda, creación, actualización y eliminación de raz
 
 <details>
     <summary> Rutas para Users: </summary>
-    <br>
-
-    **GET**
-    - Traer todos los usuarios registrados
-
-    ```
-        http://127.0.0.1:3000/api/users
-    ```
-    <br>
-
-    -   Traer un usuario por su nombre
-
-    ```
-        http://127.0.0.1:3000/api/users/name/:name
-    ```
-    <br>
-
-    -   Traer un usuario por su ID
-
-    ```
-        http://127.0.0.1:3000/api/users/:id
-    ```
 
     <br>
 
-    **POST**
-    -   Crear un usuario
+**GET**
+- Traer todos los usuarios registrados
 
-    ```
-        http://127.0.0.1:3000/api/users/
-    ```
+```
+    http://127.0.0.1:3000/api/users
+```
+<br>
 
-    <br>
+-   Traer un usuario por su nombre
 
-    -   Iniciar Sesión
+```
+    http://127.0.0.1:3000/api/users/name/:name
+```
+<br>
 
-    ```
-        http://127.0.0.1:3000/api/users/login
-    ```
+-   Traer un usuario por su ID
 
-    <br>
+```
+    http://127.0.0.1:3000/api/users/:id
+```
 
-    **PUT**
-    -   Actualizar un usuario
+<br>
 
-    ```
-        http://127.0.0.1:3000/api/users/:id
-    ```
+**POST**
+-   Crear un usuario
 
-    <br>
+```
+    http://127.0.0.1:3000/api/users/
+```
 
-    **DELETE**
-    -   Eliminar un usuario
+<br>
 
-    ```
-        http://127.0.0.1:3000/api/users/:id
-    ```
+-   Iniciar Sesión
+
+```
+    http://127.0.0.1:3000/api/users/login
+```
+
+<br>
+
+**PUT**
+-   Actualizar un usuario
+
+```
+    http://127.0.0.1:3000/api/users/:id
+```
+
+<br>
+
+**DELETE**
+-   Eliminar un usuario
+
+```
+    http://127.0.0.1:3000/api/users/:id
+```
 
 </details>
 
 <br>
 
-### Rutas para razas
+<details>
+    <summary> Rutas para razas </summary>
+
+<br>
+
 **GET**
-   - Traer todas las razas
+- Traer todas las razas
 
 ```
     http://127.0.0.1:3000/api/(recognized/experimental)
@@ -126,3 +131,4 @@ Michi REST permite la búsqueda, creación, actualización y eliminación de raz
 ```
     http://127.0.0.1:3000/api/(recognized/experimental)/:id
 ```
+</details>
