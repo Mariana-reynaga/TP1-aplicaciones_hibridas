@@ -132,3 +132,7 @@ Michi REST permite la búsqueda, creación, actualización y eliminación de raz
     http://127.0.0.1:3000/api/(recognized/experimental)/:id
 ```
 </details>
+
+<br>
+
+*Creado por Mariana Reynaga para Aplicaciónes Hibridas dada por el profesor Jonathan Cruz en la comisión DWM4AP*
