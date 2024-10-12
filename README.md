@@ -7,7 +7,7 @@ Michi REST permite la búsqueda, creación, actualización y eliminación de raz
 
 ## Endpoints
 
-### Rutas para Users: ###
+### Rutas para Users: 
 
 **GET**
    - Traer todos los usuarios registrados
@@ -17,14 +17,14 @@ Michi REST permite la búsqueda, creación, actualización y eliminación de raz
 ```
 <br>
 
--   Traer todos un usuario por su nombre
+-   Traer un usuario por su nombre
 
 ```
     http://127.0.0.1:3000/api/users/name/:name
 ```
 <br>
 
--   Traer todos un usuario por su ID
+-   Traer un usuario por su ID
 
 ```
     http://127.0.0.1:3000/api/users/:id
@@ -63,4 +63,62 @@ Michi REST permite la búsqueda, creación, actualización y eliminación de raz
 
 ```
     http://127.0.0.1:3000/api/users/:id
+```
+
+<br>
+
+### Rutas para razas
+**GET**
+   - Traer todas las razas
+
+```
+    http://127.0.0.1:3000/api/(recognized/experimental)
+```
+<br>
+
+-   Traer una raza por su nombre
+```
+    http://127.0.0.1:3000/api/(recognized/experimental)/name/:name
+```
+<br>
+
+-   Traer una raza por su ID
+```
+    http://127.0.0.1:3000/api/(recognized/experimental)/:id
+```
+
+<br>
+
+-   Traer todas las razas por su color
+```
+    http://127.0.0.1:3000/api/(recognized/experimental)/color/:color
+```
+<br>
+
+-   Traer todas las razas por el largo del pelo
+```
+    http://127.0.0.1:3000/api/(recognized/experimental)/length/:length
+```
+
+**POST**
+-   Crear una raza
+
+```
+    http://127.0.0.1:3000/api/(recognized/experimental)/
+```
+<br>
+
+**PUT**
+-   Actualizar una raza
+
+```
+    http://127.0.0.1:3000/api/(recognized/experimental)/:id
+```
+<br>
+
+**DELETE**
+-   Eliminar una raza
+
+```
+    http://127.0.0.1:3000/api/(recognized/experimental)/:id
 ```
