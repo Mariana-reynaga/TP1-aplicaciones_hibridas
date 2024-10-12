@@ -10,20 +10,33 @@
     <title>Trabajo Practico 1</title>
 </head>
 <body>
-    <div class="container mb-5">
-        <nav class="navbar navbar-expand-lg bg-primary rounded">
+    <nav class="navbar navbar-expand-lg bg-primary rounded-bottom mb-5 sticky-top">
+        <div class="container">
+            <a class="navbar-brand fs-5 text-light fw-bold" href="#">Michi REST</a>
+
             <div class="container">
-                <a class="navbar-brand" href="#">Michi REST</a>
-            </div>  
-        </nav>
-    </div>
+                <ul class="navbar-nav">
+                    <li class="navbar-item">
+                        <a class="nav-link active text-light fs-4" aria-current="page" href="#user">Users</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link active text-light fs-4" aria-current="page" href="#recognized">Reconocidas</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link active text-light fs-4" aria-current="page" href="#experimental">experimentales</a>
+                    </li>
+                </ul>
+            </div>
+        </div> 
+
+    </nav>
 
     <main>
-        <div class="d-flex flex-column flex-md-row justify-content-md-evenly align-items-center">
-            <div class="container w-50 d-flex flex-column align-items-center align-items-md-start ms-0 me-3">
-                <p>Michi REST es una API REST para razas de gatos. Se pueden buscar razas oficiales o experimentales, ademas de agregar y eliminar.</p>
+        <div class="d-flex flex-column flex-md-row justify-content-md-evenly align-items-center container">
+            <div class="container d-flex flex-column align-items-center align-items-md-start ms-0 me-3">
+                <p>Michi REST permite la búsqueda, creación, actualización y eliminación de razas de gatos experimentals por la Fédération Internationale Féline (FIF) además de razas experimentales.</p>
 
-                <div class="d-flex align-items-center">
+                <div class="d-flex flex-2 align-items-center">
                     <p>Tambien, sin cargo extra, foto del gato de mi amigo:</p>
                     <p class="fs-3 ms-3 fst-italic">Argo</p>
                 </div>
@@ -33,66 +46,170 @@
             
         </div>
         
-        <div class="container-fluid my-5 bg-secondary">
-            <div class="container table-responsive">
-                <h2>Endpoints</h2>
+        <div class="container-fluid my-5">
+            <div class="container table-responsive border-top border-secondary border-2 pt-3">
+                <p class="fw-bold fs-3">Endpoints</p>
     
-                <table class="table align-middle table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col">Función</th>
-                            <th scope="col">Reconocido</th>
-                            <th scope="col">Experimental</th>
-                            <th scope="col">Usuario</th>
-                            
-                          </tr>
-                    </thead>
-    
-                    <tbody>
-                        <tr>
-                            <th scope="row" style="background-color: greenyellow;">GET</th>
-                            <td>Buscar Todas</td>
-                            <td>http://127.0.0.1:3000/api/recognized</td>
-                            <td>http://127.0.0.1:3000/api/experimental </td>
-                            <td>http://127.0.0.1:3000/api/users </td>
-                        </tr>
-    
-                        <tr>
-                            <th scope="row" style="background-color: greenyellow;">GET</th>
-                            <td>Buscar por ID</td>
-                            <td>http://127.0.0.1:3000/api/recognized/:id</td>
-                            <td>http://127.0.0.1:3000/api/experimental/:id</td>
-                            <td>http://127.0.0.1:3000/api/users/:id </td>
-                        </tr>
-    
-                        <tr>
-                            <th scope="row" style="background-color:#8482f5 ;">POST</th>
-                            <td>Subir una raza nueva</td>
-                            <td>http://127.0.0.1:3000/api/recognized</td>
-                            <td>http://127.0.0.1:3000/api/experimental</td>
-                            <td>http://127.0.0.1:3000/api/users </td>
-                        </tr>
-    
-                        <tr>
-                            <th scope="row" style="background-color: #cf4457 ;" >DELETE</th>
-                            <td>Eliminar una raza</td>
-                            <td>http://127.0.0.1:3000/api/recognized/:id</td>
-                            <td>http://127.0.0.1:3000/api/experimental/:id</td>
-                            <td>http://127.0.0.1:3000/api/users/:id </td>
-                        </tr>
-                    </tbody>
-    
-    
-                </table>
-    
+                <h2 id="user" class="fs-4 my-3">User</h2>
+                
+                <div class="container bg-body-secondary p-4">
+                    <p class="fw-bold fs-5 ms-5">GET</p>
+
+                    <div class="mb-3">
+                        <p>Traer todos los usuarios</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/users</p>
+                    </div>
+
+                    <div class="mt-4">
+                        <p>Traer un usuario por su nombre</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/users/name/:name</p>
+                    </div>
+
+                    <div class="mt-4">
+                        <p>Traer un usuario por su ID</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/users/:id</p>
+                    </div>
+
+                    <p class="fw-bold fs-5 ms-5 mt-4">POST</p>
+
+                    <div class="mb-3">
+                        <p>Crear un usuario</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/users/</p>
+                    </div>
+
+                    <div class="mb-3">
+                        <p>Iniciar Sesión</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/users/login</p>
+                    </div>
+
+                    <p class="fw-bold fs-5 ms-5 mt-4">PUT</p>
+
+                    <div class="mb-3">
+                        <p>Actualizar un usuario</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/users/:id</p>
+                    </div>
+
+                    <p class="fw-bold fs-5 ms-5 mt-4">DELETE</p>
+
+                    <div class="mb-3">
+                        <p>Eliminar un usuario</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/users/:id</p>
+                    </div>
+                    
+                </div>
+
+                <h2 id="recognized" class="fs-4 mb-3 mt-5">Razas reconocidas</h2>
+
+                <div class="container bg-body-secondary p-4">
+                    <p class="fw-bold fs-5 ms-5">GET</p>
+
+                    <div class="mb-3">
+                        <p>Traer todas las razas</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/recognized</p>
+                    </div>
+
+                    <div class="mt-4">
+                        <p>Traer una raza reconocida por su nombre</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/recognized/name/:name</p>
+                    </div>
+
+                    <div class="mt-4">
+                        <p>Traer una raza reconocida por su color</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/recognized/color/:color</p>
+                    </div>
+
+                    <div class="mt-4">
+                        <p>Traer una raza reconocida por el largo del pelo</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/recognized/length/:length</p>
+                    </div>
+
+                    <div class="mt-4">
+                        <p>Traer una raza reconocida por su ID</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/recognized/:id</p>
+                    </div>
+
+                    <p class="fw-bold fs-5 ms-5 mt-4">POST</p>
+
+                    <div class="mb-3">
+                        <p>Crear una raza reconocida</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/recognized/</p>
+                    </div>
+
+                    <p class="fw-bold fs-5 ms-5 mt-4">PUT</p>
+
+                    <div class="mb-3">
+                        <p>Actualizar una raza reconocida</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/recognized/:id</p>
+                    </div>
+
+                    <p class="fw-bold fs-5 ms-5 mt-4">DELETE</p>
+
+                    <div class="mb-3">
+                        <p>Eliminar una raza reconocida</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/recognized/:id</p>
+                    </div>
+                    
+                </div>
+
+                <h2 id="experimental" class="fs-4 mb-3 mt-5">Razas experimentales</h2>
+
+                <div class="container bg-body-secondary p-4">
+                    <p class="fw-bold fs-5 ms-5">GET</p>
+
+                    <div class="mb-3">
+                        <p>Traer todas las razas</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/experimental</p>
+                    </div>
+
+                    <div class="mt-4">
+                        <p>Traer una raza experimental por su nombre</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/experimental/name/:name</p>
+                    </div>
+
+                    <div class="mt-4">
+                        <p>Traer una raza experimental por su color</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/experimental/color/:color</p>
+                    </div>
+
+                    <div class="mt-4">
+                        <p>Traer una raza experimental por el largo del pelo</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/experimental/length/:length</p>
+                    </div>
+
+                    <div class="mt-4">
+                        <p>Traer una raza experimental por su ID</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/experimental/:id</p>
+                    </div>
+
+                    <p class="fw-bold fs-5 ms-5 mt-4">POST</p>
+
+                    <div class="mb-3">
+                        <p>Crear una raza experimental</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/experimental/</p>
+                    </div>
+
+                    <p class="fw-bold fs-5 ms-5 mt-4">PUT</p>
+
+                    <div class="mb-3">
+                        <p>Actualizar una raza experimental</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/experimental/:id</p>
+                    </div>
+
+                    <p class="fw-bold fs-5 ms-5 mt-4">DELETE</p>
+
+                    <div class="mb-3">
+                        <p>Eliminar una raza experimental</p>
+                        <p class="ms-3 bg-secondary p-2 text-white">http://127.0.0.1:3000/api/experimental/:id</p>
+                    </div>
+                    
+                </div>
             </div>
         </div>
 
     </main>
 
     <footer class="container-fluid bg-primary py-5 d-flex justify-content-center">
-        <div class="container">
+        <div class="container d-flex flex-row justify-content-evenly text-light"> 
             <p>Mariana Reynaga</p>
             <p>Aplicaciones Hibridas</p>
             <p>Jonathan Emanuel Cruz</p>
