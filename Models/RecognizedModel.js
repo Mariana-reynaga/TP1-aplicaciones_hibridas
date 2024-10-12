@@ -18,7 +18,7 @@ const recognizedSchema = new schema({
     },
     possible_color:{
         type: String,
-        enum: ['white', 'black', 'ginger', 'tabby', 'blue', 'brown', 'calico', 'rosette'],
+        enum: ['white', 'black', 'ginger', 'tabby', 'blue', 'brown', 'calico', 'rosette', 'none'],
         default: 'white',
         required: true
     },

@@ -1,0 +1,59 @@
+[
+    {
+        "name": "Bengal",
+        "origin": "South-East Asia",
+        "coat_length": "short",
+        "possible_color": "rosette",
+        "_id": "670aedfad3730112f9ea8f07",
+        "created_at": "2024-10-12T21:45:30.773Z"
+    },
+    {
+        "name": "British Longhair",
+        "origin": "England",
+        "coat_length": "long",
+        "possible_color": "blue",
+        "_id": "670aee713d17b1c5751852fe",
+        "created_at": "2024-10-12T21:47:29.502Z"
+    },
+    {
+        "name": "Burmilla",
+        "origin": "England",
+        "coat_length": "short",
+        "possible_color": "white",
+        "_id": "670aeed71bf5a224aaf243c9",
+        "created_at": "2024-10-12T21:49:11.476Z"
+    },
+    {
+        "name": "Don Sphynx",
+        "origin": "Russia",
+        "coat_length": "bald",
+        "possible_color": "none",
+        "_id": "670aef3dd565492ce9c2c689",
+        "created_at": "2024-10-12T21:50:53.691Z"
+    },
+    {
+        "name": "Somali",
+        "origin": "Etopia",
+        "coat_length": "long",
+        "possible_color": "ginger",
+        "_id": "670aef902bf766fba24b5f6e",
+        "created_at": "2024-10-12T21:52:16.856Z"
+    },
+    {
+        "name": "Somali",
+        "origin": "Etopia",
+        "coat_length": "long",
+        "possible_color": "ginger",
+        "_id": "670aef902bf766fba24b5f6e",
+        "created_at": "2024-10-12T21:52:16.856Z"
+    },
+    {
+        "name": "Oriental Longhair",
+        "origin": "United States",
+        "coat_length": "long",
+        "possible_color": "brown",
+        "_id": "670af075e37f32cb99e1cf31",
+        "created_at": "2024-10-12T21:56:05.945Z"
+    }
+
+]

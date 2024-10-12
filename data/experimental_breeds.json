@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Aegean",
+        "origin": "Greece",
+        "coat_length": "short",
+        "possible_color": "calico",
+        "_id": "670af14dddcb0bfe92a6b386",
+        "created_at": "2024-10-12T21:59:41.380Z"
+    },
+    {
+        "name": "Aphrodite",
+        "origin": "Greece",
+        "coat_length": "short",
+        "possible_color": "tabby",
+        "_id": "670af1622ca21f7a7f8eebda",
+        "created_at": "2024-10-12T22:00:02.988Z"
+    },
+    {
+        "name": "Bambino",
+        "origin": "Italy",
+        "coat_length": "bald",
+        "possible_color": "none",
+        "_id": "670af1a8ca1c6326e7c019a1",
+        "created_at": "2024-10-12T22:01:12.466Z"
+    },
+    {
+        "name": "Foldex",
+        "origin": "Canada",
+        "coat_length": "short",
+        "possible_color": "ginger",
+        "_id": "670af1db2ca77c7d8627553c",
+        "created_at": "2024-10-12T22:02:03.248Z"
+    },
+    {
+        "name": "Highlander",
+        "origin": "United States",
+        "coat_length": "short",
+        "possible_color": "rosette",
+        "_id": "670af21bbc71e604357af40b",
+        "created_at": "2024-10-12T22:03:07.474Z"
+    },
+    {
+        "name": "Skookum",
+        "origin": "United States",
+        "coat_length": "long",
+        "possible_color": "calico",
+        "_id": "670af289b1e1c9eba609a4cc",
+        "created_at": "2024-10-12T22:04:57.975Z"
+    },
+    {
+        "name": "Tiffanie",
+        "origin": "England",
+        "coat_length": "long",
+        "possible_color": "brown",
+        "_id": "670af2d38026b0247eb64b80",
+        "created_at": "2024-10-12T22:06:11.447Z"
+    }
+]
