@@ -7,9 +7,10 @@ Michi REST permite la búsqueda, creación, actualización y eliminación de raz
 
 ## Endpoints
 
-### Rutas para Users: 
+<section>
+    <summary>Rutas para Users: </summary>
 
-**GET**
+    **GET**
    - Traer todos los usuarios registrados
 
 ```
@@ -64,6 +65,8 @@ Michi REST permite la búsqueda, creación, actualización y eliminación de raz
 ```
     http://127.0.0.1:3000/api/users/:id
 ```
+
+</section>
 
 <br>
 
