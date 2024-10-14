@@ -12,8 +12,7 @@ Michi REST fue creado con javascript, express y mongoDB.
 
 <details>
     <summary> Rutas para Users: </summary>
-
-    <br>
+<br>
 
 **GET**
 - Traer todos los usuarios registrados
