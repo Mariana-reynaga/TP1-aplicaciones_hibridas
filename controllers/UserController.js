@@ -20,12 +20,12 @@ const bringUsers = async ( req, res ) => {
             res.status(404).json( { msg: "No existen Usuarios"} );
     
         }else {
-            res.status(200).json( { msg: "Usuarios: ", data: users } );
+            res.status(200).json( { msg: "Usuarios: ", users: users } );
         }
 
     } catch (error) {
         log(chalk.bgRed('[UserController.js]: bringUsers: ' ,error));
-        res.status(500).json({msg: 'OOPS, tenemos un error', data: {}});
+        res.status(500).json({msg: 'OOPS, tenemos un error', users: {}});
     }
 
 };

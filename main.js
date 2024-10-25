@@ -57,6 +57,10 @@ app.use( (req, res, next)=>{
 
 app.use(  express.static('public') );
 
+// Conexión con usos externos
+const cors = require('cors');
+app.use( cors())
+
 // Ruta raiz
 app.get('/api', (req, res)=>{ 
     res.status(200).send("<h1>API REST michis</h1>");
